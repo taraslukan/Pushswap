@@ -6,7 +6,7 @@
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 18:58:37 by tlukan            #+#    #+#             */
-/*   Updated: 2024/05/31 16:03:38 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/06/04 15:32:09 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ long int	ft_atoi(const char *str)
 	ris = 0;
 	pon = 1;
 	i = 0;
-	while (str[i] == 32 || ((str[i] > 8) && (str[i] < 14)))
+	while (str[i] == ' ' || ((str[i] > 8) && (str[i] < 14)))
 		i++;
 	if (str[i] == 45)
 		pon = -1;

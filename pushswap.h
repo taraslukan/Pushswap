@@ -6,7 +6,7 @@
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:59:35 by tlukan            #+#    #+#             */
-/*   Updated: 2024/05/31 15:40:20 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/06/04 16:55:17 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@
 
 # define KEY_ESC 65307
 
-int	numbercontrol(char *str);
-int	ft_error(int error);
+int		numbercontrol(char *str);
+int		ft_error(int error);
+int		validate(int argc, char **argv, t_mat *first);
+void	free_mat(char **mat);
 
 #endif

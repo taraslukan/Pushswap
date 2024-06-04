@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   freemem.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 13:59:51 by tlukan            #+#    #+#             */
-/*   Updated: 2024/06/04 15:56:53 by tlukan           ###   ########.fr       */
+/*   Created: 2024/06/04 16:24:16 by tlukan            #+#    #+#             */
+/*   Updated: 2024/06/04 16:26:26 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#include "pushswap.h"
 
-# define NUM_COLLECTABLE 5
-# define MAX_XPM 5
-
-typedef struct s_mat
+void	free_mat(char **mat)
 {
-	int			size_n;
-	char		**matr;
-	int			*stac;
-	long int	xmap;
-	long int	ymap;
-}	t_mat;
+	int	i;
 
-#endif
+	i = 0;
+	while (mat[i])
+		free(mat[i++]);
+	free(mat);
+}

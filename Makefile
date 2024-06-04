@@ -11,7 +11,7 @@ LIBFTDIR = ./ft_libft
 FT_PRINTFDIR = ./ft_printf
 
 # Source files
-SRCS = main.c checkmatrix.c
+SRCS = main.c val.c freemem.c
 OBJS = $(SRCS:%.c=%.o)
 
 # Executable name
