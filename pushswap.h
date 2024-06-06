@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:59:35 by tlukan            #+#    #+#             */
-/*   Updated: 2024/06/04 16:55:17 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/06/06 15:38:45 by lukan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,11 @@
 # include "liberror.h"
 # include "ft_printf/ft_printf.h"
 
-# define KEY_ARROW_RIGHT 65363
-# define KEY_ARROW_LEFT 65361
-# define KEY_ARROW_UP 65362
-# define KEY_ARROW_DOWN 65364
-
-# define KEY_D 100
-# define KEY_A 97
-# define KEY_W 119
-# define KEY_S 115
-
-# define KEY_ESC 65307
-
 int		numbercontrol(char *str);
 int		ft_error(int error);
 int		validate(int argc, char **argv, t_mat *first);
 void	free_mat(char **mat);
+int		findnull(t_mat *first);
+int		*initialstack(t_mat *first, size_t count, size_t size);
 
 #endif

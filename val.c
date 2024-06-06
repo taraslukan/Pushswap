@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   val.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 15:39:49 by tlukan            #+#    #+#             */
-/*   Updated: 2024/06/04 16:41:02 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/06/06 15:02:12 by lukan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int	validate(int argc, char **argv, t_mat *first)
 	else
 	{
 		first->size_n = argc - 1;
-		first->stac = malloc(first->size_n * sizeof(int *));
+		first->staca = malloc(first->size_n * sizeof(int *));
 		first->matr = argv + 1;
 		while ((int) i < first->size_n)
 		{
 			chec = ft_atoi(first->matr[i]);
 			if (!nonumero(first->matr[i]) || chec > INT_MAX || chec < INT_MIN)
 				return (0);
-			first->stac[i] = chec;
+			first->staca[i] = chec;
 			i++;
 		}
 		if (control_doubles(first) == 0)
@@ -46,7 +46,7 @@ int	validate(int argc, char **argv, t_mat *first)
 int	valsplit(t_mat *first, char **argv)
 {
 	size_t	i;
-	long	checker;
+	long	check;
 	int		retu;
 
 	i = 0;
@@ -56,13 +56,13 @@ int	valsplit(t_mat *first, char **argv)
 		i++;
 	first->size_n = i;
 	i = 0;
-	first->stac = malloc(first->size_n * sizeof(int *));
+	first->staca = malloc(first->size_n * sizeof(int *));
 	while ((int) i < first->size_n)
 	{
-		checker = ft_atoi(first->matr[i]);
-		if (!nonumero(first->matr[i]) || checker > INT_MAX || checker < INT_MIN)
+		check = ft_atoi(first->matr[i]);
+		if (!nonumero(first->matr[i]) || check > INT_MAX || check < INT_MIN)
 			retu = 0;
-		first->stac[i] = checker;
+		first->staca[i] = check;
 		i++;
 	}
 	free_mat(first->matr);
@@ -104,7 +104,7 @@ int	control_doubles(t_mat *first)
 		j = i + 1;
 		while (j < first->size_n)
 		{
-			if (first->stac[i] == first->stac[j])
+			if (first->staca[i] == first->staca[j])
 				return (0);
 			j++;
 		}

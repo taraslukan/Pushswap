@@ -1,34 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 15:02:07 by tlukan            #+#    #+#             */
-/*   Updated: 2024/06/06 15:49:20 by lukan            ###   ########.fr       */
+/*   Created: 2024/06/06 14:06:14 by lukan             #+#    #+#             */
+/*   Updated: 2024/06/06 15:54:34 by lukan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	main(int argc, char **argv)
+int findnull(t_mat *first)
 {
-	t_mat	first;
-	size_t	i;
-
-	if (!validate(argc, argv, &first))
-		return (write(2, "Error\n", 7));
+	int	i;
+	int	ris;
+	
 	i = 0;
-	while ((int) i < first.size_n)
+	ris = 0;
+	while(i < first->size_n)
 	{
-		ft_printf("--  %i  --\n", first.staca[i]);
-		i++;
+		if (first->staca[i] == ris)
+		{
+			i = 0;			
+			ris++;
+		}
+		else
+			i++;
 	}
-	first.null = findnull(&first);
-	ft_printf("il valore nullo é %i",first.null);
-	if (!initialstack(&first, first.size_n, sizeof(int *)))
-		return (write(2, "Error\n", 7));
-	free(first.staca);
-	return (0);
+	return (ris);
+}
+
+int	*initialstack(t_mat *first, size_t count, size_t size)
+{
+	int	*ris;
+
+	if (count && size && (4294967295U / size <= count))
+		return (0);
+	ris = malloc(count * size);
+	if (ris == NULL)
+		return (NULL);
+	ft_memset(ris, first->null, count * size);
+	return (ris);
 }

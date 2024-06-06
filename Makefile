@@ -11,7 +11,7 @@ LIBFTDIR = ./ft_libft
 FT_PRINTFDIR = ./ft_printf
 
 # Source files
-SRCS = main.c val.c freemem.c
+SRCS = main.c val.c freemem.c stack.c
 OBJS = $(SRCS:%.c=%.o)
 
 # Executable name
@@ -23,8 +23,8 @@ all: $(NAME)
 	${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
 
 $(NAME): $(OBJS)
-	make -C $(LIBFTDIR)
-	make -C $(FT_PRINTFDIR)
+	make re -C $(LIBFTDIR)
+	make re -C $(FT_PRINTFDIR)
 	$(CC) $(OBJS) -L$(LIBFTDIR) -L$(FT_PRINTFDIR) -lftprintf -lft -o $(NAME)
 
 
@@ -38,32 +38,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
-# #*
-# SRC = checkPath.c fdToStr.c main.c error.c mapControl.c saveObjPosition.c stampMatrix.c libft/libft.a
-# SRCB = checkPath.c fdToStr.c main.c error.c mapControl.c saveObjPosition.c stampMatrix.c
-# OBJ = $(SRCB:%.c=%.o)
-
-# MLXDIR = minilibx-linux/mlx
-
-
-# CFLAGS = -Wall -Wextra -Werror 
-# LIBSFLAG = -L$(LIBFTDIR) -lft -L$(FT_PRINTFDIR) -lftprintf -L$(MLXDIR) -lmlx_Linux
-# cc = gcc
-
-# OUTPUTNAME = so_long
-# RM = rm -r
-
-
-# all: $(OBJ)
-# 	@$(CC) $(CFLAGS) $(OBJ) -o $(OUTPUTNAME)
-
-# fclean: clean
-# 	$(RM) $(OBJ)
-
-# re: 
-# 	@$(MAKE) all
-# 	@rm *.o 
-# 	@echo "Ho eseguito e cancellato tutto"
-
-# .PHONY: all clean fclean re
