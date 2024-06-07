@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 15:02:07 by tlukan            #+#    #+#             */
-/*   Updated: 2024/06/07 16:19:22 by lukan            ###   ########.fr       */
+/*   Created: 2024/06/07 14:30:51 by lukan             #+#    #+#             */
+/*   Updated: 2024/06/07 16:54:04 by lukan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	main(int argc, char **argv)
+void	ra(t_mat *first)
 {
-	t_mat	first;
-	size_t	i;
-
-	if (!validate(argc, argv, &first))
-		return (write(2, "Error\n", 7));
+	int	temp;
+	int	i;
+	
 	i = 0;
-	while ((int) i < first.size_n)
+	while ((int) i < first->size_n)
 	{
-		ft_printf("--  %i  --\n", first.staca[i]);
+		if (i == 0)
+		{
+			temp = first->staca[i];
+		}
+		else
+			first->staca[i - 1] = first->staca[i];
 		i++;
 	}
-	ra(&first);
-	first.null = findnull(&first);
-	ft_printf("il valore nullo é %i \n",first.null);
-	if (!initialstack(&first, first.size_n, sizeof(int *)))
-		return (write(2, "Error\n", 7));
-	free(first.staca);
-	return (0);
-}
+	i = first->size_n - 1;
+		first->staca[i] = temp;
+		ft_printf("stacA aggiornata\n");
+		i = 0;
+		printf("%i\n \n ", temp);
+		while (i < first->size_n)
+		{
+			ft_printf("-- %i --\n",first->staca[i]);
+			i++;
+		}
+		}

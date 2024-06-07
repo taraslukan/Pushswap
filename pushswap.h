@@ -6,7 +6,7 @@
 /*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:59:35 by tlukan            #+#    #+#             */
-/*   Updated: 2024/06/06 15:38:45 by lukan            ###   ########.fr       */
+/*   Updated: 2024/06/07 16:09:32 by lukan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ int		validate(int argc, char **argv, t_mat *first);
 void	free_mat(char **mat);
 int		findnull(t_mat *first);
 int		*initialstack(t_mat *first, size_t count, size_t size);
-
+void	sa(t_mat *first);
+void	sb(t_mat *first);
+void	ss(t_mat *first);
+void	ra(t_mat *first);
 #endif
